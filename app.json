@@ -1,0 +1,7 @@
+{
+  "name": "Heroku Spring CXF Quickstart",
+  "description": "A Quickstart for Heroku + Java + Apache CXF with Spring",
+  "repository": "https://github.com/blackcappedchickadee/heroku-spring-cxf-quickstart",
+  "logo": "https://avatars0.githubusercontent.com/u/1025832?s=140",
+  "keywords": ["java", "apache cxf", "soap", "maven", "spring", "jax-ws"]
+}
