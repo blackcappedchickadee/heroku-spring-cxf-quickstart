@@ -6,10 +6,12 @@
     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
     
-    <!-- Spring managed ServiceBean -->
+    <!-- Spring managed ServiceBeans -->
     <bean id="geocoderServ" class="eu.erikkramer.heroku.cxf.GeocoderServiceImpl" />
+    <bean id="echoServ" class="com.cloudchirp.heroku.cxf.EchoServiceImpl" />
 
     <!-- JAX-WS Service Endpoint -->    
     <jaxws:endpoint id="geocoderService" implementor="#geocoderServ" address="/geocoderService" />
+    <jaxws:endpoint id="echoService" implementor="#echoServ" address="/echoService" />
     
 </beans>
