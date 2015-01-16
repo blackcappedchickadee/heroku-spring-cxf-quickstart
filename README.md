@@ -4,6 +4,9 @@ This source is a clone from https://github.com/erikkramer/heroku-spring-cxf-quic
 
 Gives a base from which to deploy SOAP (jax-ws) based web services. The main impetus for this project is to have a SOAP endpoint deployed on Heroku for a Salesforce Outbound Workflow process to consume.
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/blackcappedchickadee/heroku-spring-cxf-quickstart)
+
+
 ## Details
 
 This project is mavenized, so as long as you have Maven, Java, Git, and the Heroku Toolbelt installed, you can:
