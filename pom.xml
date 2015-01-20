@@ -79,6 +79,8 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+
+
 	<build>
 		<resources>
 			<resource>
@@ -108,8 +110,52 @@
 				</excludes>
 			</testResource>
 		</testResources>
+
 		<plugins>
-		
+
+
+<!-- 1.16.2015 at 4:26pm this may work -->
+<!-- http://stackoverflow.com/questions/16644463/not-able-to-generate-client-code-with-wsdl2java-and-maven-using-cxf -->
+<!-- extra args goes right after <wsdl below, if we want to use them...: -->
+                                <!--
+                                <extraargs>
+                                    <extraarg>-client</extraarg>
+                                    <extraarg>-verbose</extraarg>
+                                    <extraarg>-p</extraarg>
+                                    <extraarg>urn:mycompany:myproduct1:v1_0=com.my.project.product1</extraarg>
+                                    <extraarg>-p</extraarg>
+                                    <extraarg>http://www.w3.org/2001/XMLSchema=com.my.project.common</extraarg>
+                                </extraargs>
+                            -->
+
+        <plugin>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-codegen-plugin</artifactId>
+            <version>${cxf.version}</version>
+            <executions>
+                <execution>
+                    <id>generate-sources</id>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                        <sourceRoot>${project.build.directory}/generated/src/main/java</sourceRoot>
+                        <wsdlOptions>
+                            <wsdlOption>
+                                <wsdl>${basedir}/src/main/resources/wsdl/testAutomationService.wsdl</wsdl>
+                                <extraargs>
+					                <extraarg>-verbose</extraarg>
+					                <extraarg>-client</extraarg>
+					            </extraargs>
+                            </wsdlOption>
+                        </wsdlOptions>
+                    </configuration>
+                    <goals>
+                        <goal>wsdl2java</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+
 		     <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-java2ws-plugin</artifactId>
