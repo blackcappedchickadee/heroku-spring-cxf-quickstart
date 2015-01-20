@@ -9,9 +9,11 @@
     <!-- Spring managed ServiceBeans -->
     <bean id="geocoderServ" class="eu.erikkramer.heroku.cxf.GeocoderServiceImpl" />
     <bean id="echoServ" class="com.cloudchirp.heroku.cxf.EchoServiceImpl" />
+    <bean id="salesforceOBServ" class="com.cloudchirp.heroku.cxf.salesforce.NotificationBindingImpl" />
 
     <!-- JAX-WS Service Endpoint -->    
     <jaxws:endpoint id="geocoderService" implementor="#geocoderServ" address="/geocoderService" />
     <jaxws:endpoint id="echoService" implementor="#echoServ" address="/echoService" />
-    
+    <jaxws:endpoint id="salesforceOBService" implementor="#salesforceOBServ" address="/salesforceOBService" />
+
 </beans>

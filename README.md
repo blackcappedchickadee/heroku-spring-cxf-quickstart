@@ -61,11 +61,11 @@ Now that we have the WSDL from Salesforce, we turn our attention back to this so
 
 ### Use CXF via Maven to generate Java artifacts from the Salesforce WSDL
 
-15. Use a maven profile (cxf-codegen) to - on request - generate the Java artifacts from the Salesforce WSDL.
+1. Use a maven profile (cxf-codegen) to - on request - generate the Java artifacts from the Salesforce WSDL.
 
     $ mvn clean -Pcxf-codegen
 
-16. Create a new Java class that implements the NotificationPort. In this case, a NotificationBindingImpl class was created.
+2. Create a new Java class that implements the NotificationPort. In this case, a NotificationBindingImpl class was created.
 
 More to come...
 
