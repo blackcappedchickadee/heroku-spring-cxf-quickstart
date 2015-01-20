@@ -18,9 +18,47 @@
 		<cxf.version>2.2.6</cxf.version>
         <spring-version>3.0.1.RELEASE</spring-version>
 	</properties>
+
+
+    <!-- Profiles Section -->
+    <profiles>
+        <profile>
+            <id>cxf-codegen</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.cxf</groupId>
+                        <artifactId>cxf-codegen-plugin</artifactId>
+                        <version>${cxf.version}</version>
+                        <executions>
+                            <execution>
+                                <id>generate-sources</id>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <!-- <sourceRoot>${project.build.directory}/generated-sources/src/main/java</sourceRoot> -->
+                                    <sourceRoot>${basedir}/src/main/java</sourceRoot>
+                                    <wsdlOptions>
+                                        <wsdlOption>
+                                            <wsdl>${basedir}/src/main/resources/wsdl/testAutomationService.wsdl</wsdl>
+                                            <extraargs>
+                                                <extraarg>-verbose</extraarg>
+                                                <extraarg>-client</extraarg>
+                                            </extraargs>
+                                        </wsdlOption>
+                                    </wsdlOptions>
+                                </configuration>
+                                <goals>
+                                    <goal>wsdl2java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 	<dependencies>
-	
-	
 	     <!-- Apache CXF dependencies -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -127,34 +165,34 @@
                                     <extraarg>http://www.w3.org/2001/XMLSchema=com.my.project.common</extraarg>
                                 </extraargs>
                             -->
-
-        <plugin>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-codegen-plugin</artifactId>
-            <version>${cxf.version}</version>
-            <executions>
-                <execution>
-                    <id>generate-sources</id>
-                    <phase>generate-sources</phase>
-                    <configuration>
-                        <sourceRoot>${project.build.directory}/generated/src/main/java</sourceRoot>
-                        <wsdlOptions>
-                            <wsdlOption>
-                                <wsdl>${basedir}/src/main/resources/wsdl/testAutomationService.wsdl</wsdl>
-                                <extraargs>
-					                <extraarg>-verbose</extraarg>
-					                <extraarg>-client</extraarg>
-					            </extraargs>
-                            </wsdlOption>
-                        </wsdlOptions>
-                    </configuration>
-                    <goals>
-                        <goal>wsdl2java</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-
+<!--
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>${cxf.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <sourceRoot>${project.build.directory}/generated-sources/src/main/java</sourceRoot>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/testAutomationService.wsdl</wsdl>
+                                    <extraargs>
+                                        <extraarg>-verbose</extraarg>
+                                        <extraarg>-client</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+-->
 
 		     <plugin>
                 <groupId>org.apache.cxf</groupId>
