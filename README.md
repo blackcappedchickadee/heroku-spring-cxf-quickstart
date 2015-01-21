@@ -65,7 +65,24 @@ Now that we have the WSDL from Salesforce, we turn our attention back to this so
 
     $ mvn clean -Pcxf-codegen
 
-2. Create a new Java class that implements the NotificationPort. In this case, a NotificationBindingImpl class was created.
+2. Create a new Java class that implements the NotificationPort. In this case, a NotificationBindingImpl class was created:
+
+        public class NotificationBindingImpl implements NotificationPort {
+
+            public boolean notifications(String organizationId,
+                                         String actionId,
+                                         String sessionId,
+                                         String enterpriseUrl,
+                                         String partnerUrl,
+                                         List<com.sforce.soap._2005._09.outbound.TestAutomationCNotification> notification) {
+
+                System.out.println("Hello There.");
+                System.out.println(notification.get(0).getSObject().getMessageC().getValue());
+
+                return true;
+            }
+
+        }
 
 More to come...
 
