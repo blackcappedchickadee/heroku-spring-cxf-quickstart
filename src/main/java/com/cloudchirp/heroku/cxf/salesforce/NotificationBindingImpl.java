@@ -18,7 +18,7 @@ public class NotificationBindingImpl implements NotificationPort {
                                  String partnerUrl,
                                  List<com.sforce.soap._2005._09.outbound.TestAutomationCNotification> notification) {
 
-        System.out.println("Hello There.");
+        System.out.println("Hello There. Received outbound worflow soap post request from Salesforce.");
         System.out.println(notification.get(0).getSObject().getMessageC().getValue());
 
         return true;
